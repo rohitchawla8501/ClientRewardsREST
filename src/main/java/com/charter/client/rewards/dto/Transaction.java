@@ -14,19 +14,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @author rohitchawla
  * Transaction DTO
  */
+
 @Entity
 public class Transaction {
 	@Id
 	private int id;
-	
+
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "CUSTOMER_ID")
 	private Customer customer;
+	
 	@Column
 	int transaction_amount;
 	@Column
 	Date transaction_date;
+
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -51,5 +54,5 @@ public class Transaction {
 	public void setId(int id) {
 		this.id = id;
 	}	
-	
+
 }

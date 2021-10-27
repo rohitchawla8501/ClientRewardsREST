@@ -27,10 +27,6 @@ public class RewardServiceImpl implements RewardService {
 	private CustomerRepository customerRepository;
 
 	LocalDate currentdate = LocalDate.now();
-	//	int threeMonths= currentdate.minusMonths(3).getYear();
-	//	
-	//	int currentMonth= currentdate.getMonth().getValue();
-	//	int currentYear= currentdate.getYear();
 
 	@Override
 	public List<Customer> calculateRewardsAll() {
@@ -95,18 +91,9 @@ public class RewardServiceImpl implements RewardService {
 		{
 			int transactionMonth=transaction.getTransaction_date().getMonth()+1;
 			int transactionYear=transaction.getTransaction_date().getYear()+1900;
+			
 			logger.debug("Calculating Rewards for customer" + customer.getName() + " for Transaction Id " + transaction.getId());
-			//			if (currentYear==transactionYear && currentMonth!=1 && currentMonth!=2)
-			//			{
-			//				if(currentMonth==transactionMonth)
-			//					customer.setThirdMonthRewards(customer.getThirdMonthRewards()+calculateRewardAmountPerTransaction(transaction.getTransaction_amount()));
-			//				else if(currentMonth-1==transactionMonth)
-			//					customer.setSecondMonthRewards(customer.getSecondMonthRewards()+calculateRewardAmountPerTransaction(transaction.getTransaction_amount()));
-			//				else if(currentMonth-2==transactionMonth)
-			//					customer.setFirstMonthRewards(customer.getFirstMonthRewards()+calculateRewardAmountPerTransaction(transaction.getTransaction_amount()));
-			//			}
-
-
+			
 			if((currentdate.getYear()==transactionYear)&&(currentdate.getMonth().getValue()==transactionMonth))
 				customer.setThirdMonthRewards(customer.getThirdMonthRewards()+calculateRewardAmountPerTransaction(transaction.getTransaction_amount()));
 			else if((currentdate.minusMonths(1).getYear()==transactionYear)&& (currentdate.minusMonths(1).getMonth().getValue()==transactionMonth))

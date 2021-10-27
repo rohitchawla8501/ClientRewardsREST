@@ -8,6 +8,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,15 +18,13 @@ import com.charter.client.rewards.ExceptionHandling.CustomerNotFoundException;
 import com.charter.client.rewards.dto.Customer;
 import com.charter.client.rewards.service.RewardService;
 
-
-
 /**
  * @author rohitchawla
  *
  */
 
 @RestController
-public class RewardsController {
+public class RewardsController implements ErrorController {
 
 	Logger logger = LoggerFactory.getLogger(RewardsController.class);
 
@@ -40,14 +39,14 @@ public class RewardsController {
 
 	@GetMapping("/customers/rewards")
 	public ResponseEntity<List<Customer>> getAllCustomerRewards() {
-			logger.info("Entered getAllCustomerRewards method");
-			List<Customer> customerList = rewardService.calculateRewardsAll();
-			if (customerList.isEmpty() || customerList.size() == 0) 
-			{
-				logger.error("Customer List is empty");
-				throw new CustomerNotFoundException("No Customer Data");
-			}
-			return new ResponseEntity<>(customerList, HttpStatus.OK);
+		logger.info("Entered getAllCustomerRewards method");
+		List<Customer> customerList = rewardService.calculateRewardsAll();
+		if (customerList.isEmpty() || customerList.size() == 0) 
+		{
+			logger.error("Customer List is empty");
+			throw new CustomerNotFoundException("No Customer Data");
+		}
+		return new ResponseEntity<>(customerList, HttpStatus.OK);
 	}
 
 	@GetMapping("/customers/rewards/{id}")
@@ -58,10 +57,11 @@ public class RewardsController {
 		if ( customer==null) {
 			logger.error("Customer Object is empty/No Customer found");
 			throw new CustomerNotFoundException("Customer id '" + id + "' does not exist");
-			//return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			//return ResponseEntity.status(HttpStatus.FOUND).location(URI.create("/")).build();
 		}
 
 		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 	}
+
+
 }
+
