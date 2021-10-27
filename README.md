@@ -1,5 +1,5 @@
 
-====================
+
 PROBLEM STATEMENT:
 ====================
 
@@ -17,7 +17,7 @@ Given a record of every transaction during a three-month period, calculate the r
 
 
 
-====================
+
 Directory Strutuctre
 ====================
 
@@ -73,26 +73,26 @@ DataSet
 -- The data is stored in a in memory H2 database. Insert queries are recorded in the data.sql file under the resources folder.  
 -- We have 2 Database Schemas in schema.sql under the resources folder. Schema 1 = Customer Schema 2 = Transaction. They share a foreign key relationship on customer Id.
 
-====================
+
 Exception Handling
 ====================
 Exception Handling for Customer Record which does not exist is performed via a custom Exception CustomerNotFoundException
 Logging is provided as well.
 
-====================
+
 Unit Tests
 ====================
 I have create a few Unit Tests for scenarios such as Transaction amount >100, lesser than 50 and between 50 and 100 as well. It is present in file ApplicationTests.java
 User can run  mvn test to run the tests.
 
-====================
+
 To run:
 ====================
 git clone https://github.com/rohitchawla8501/ClientRewardsREST
 mvn clean compile
 mvn spring-boot:run
 
-====================
+
 USAGE
 ====================
 1. User can hit the following URL via GET Method for All customer Rewards--> /customers/rewards
