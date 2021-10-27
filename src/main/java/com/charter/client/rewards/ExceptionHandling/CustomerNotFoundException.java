@@ -1,4 +1,4 @@
-package com.charter.client.rewards.ExceptionHandling;
+package com.charter.client.rewards.exceptionhandling;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.http.HttpStatus;

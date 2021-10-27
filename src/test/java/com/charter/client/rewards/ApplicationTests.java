@@ -20,7 +20,7 @@ class ApplicationTests {
 
 	@Test
 	/*This Test case checks reward amount for above 100.*/
-	void testCalculateRewardAmountHigh() {
+	void testCalculateRewardsforMultipleTransactions() {
 		Customer customer=rewardService.calculateRewardsbyId(2);
 		System.out.println("Test Customer"+ customer.getName());
 		if(customer.getId()==2) {

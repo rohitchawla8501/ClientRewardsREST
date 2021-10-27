@@ -39,7 +39,7 @@ public class RewardServiceImpl implements RewardService {
 			{
 				logger.debug("Getting customer transactions by Id and calculating rewards for customer " +customer.getName());
 				Set<Transaction> setOfTransaction =customer.getTransactions();
-				rewardsSetperMonth(setOfTransaction,customer);
+				setRewardsPerMonth(setOfTransaction,customer);
 				logger.debug("End of reward calculation for customer" +customer.getName());
 			}
 
@@ -59,7 +59,7 @@ public class RewardServiceImpl implements RewardService {
 		{
 			logger.debug("Getting customer transactions by Id and calculating rewards for customer " +customer.getName());
 			Set<Transaction> setOfTransaction =customer.getTransactions();
-			rewardsSetperMonth(setOfTransaction,customer);
+			setRewardsPerMonth(setOfTransaction,customer);
 			logger.debug("End of reward calculation for customer " +customer.getName());
 		}
 		logger.info("End of calculateRewardsbyId method of Service, Returning Customer details with Rewards");
@@ -83,7 +83,7 @@ public class RewardServiceImpl implements RewardService {
 	}
 
 
-	private void rewardsSetperMonth(Set<Transaction> setOfTransaction, Customer customer) 
+	private void setRewardsPerMonth(Set<Transaction> setOfTransaction, Customer customer) 
 	{
 
 

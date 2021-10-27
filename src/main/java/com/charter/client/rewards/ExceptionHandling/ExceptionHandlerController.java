@@ -1,4 +1,4 @@
-package com.charter.client.rewards.ExceptionHandling;
+package com.charter.client.rewards.exceptionhandling;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

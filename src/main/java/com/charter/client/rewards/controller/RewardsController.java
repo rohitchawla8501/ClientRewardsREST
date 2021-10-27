@@ -14,8 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import com.charter.client.rewards.ExceptionHandling.CustomerNotFoundException;
+
 import com.charter.client.rewards.dto.Customer;
+import com.charter.client.rewards.exceptionhandling.CustomerNotFoundException;
 import com.charter.client.rewards.service.RewardService;
 
 /**
