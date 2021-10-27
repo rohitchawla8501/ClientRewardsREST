@@ -25,16 +25,15 @@ public class Customer {
 	@Column
 	String name;
 	
-	@OneToMany(mappedBy="customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Transaction> transactions;
-	
 	
 	@Transient
 	int totalRewardAmount;
 	@Transient
 	int thirdMonthRewards;
 	@Transient
-	int secoundMonthRewards;
+	int secondMonthRewards;
 	@Transient
 	int firstMonthRewards;
 	
@@ -58,7 +57,7 @@ public class Customer {
 		this.transactions = transactions;
 	}
 	public int getTotalRewardAmount() {
-		return firstMonthRewards+secoundMonthRewards+thirdMonthRewards;
+		return firstMonthRewards+secondMonthRewards+thirdMonthRewards;
 	}
 	public void setTotalRewardAmount(int totalRewardAmount) {
 		this.totalRewardAmount = totalRewardAmount;
@@ -69,11 +68,11 @@ public class Customer {
 	public void setThirdMonthRewards(int thirdMonthRewards) {
 		this.thirdMonthRewards = thirdMonthRewards;
 	}
-	public int getSecoundMonthRewards() {
-		return secoundMonthRewards;
+	public int getSecondMonthRewards() {
+		return secondMonthRewards;
 	}
-	public void setSecoundMonthRewards(int secoundMonthRewards) {
-		this.secoundMonthRewards = secoundMonthRewards;
+	public void setSecondMonthRewards(int secoundMonthRewards) {
+		this.secondMonthRewards = secoundMonthRewards;
 	}
 	public int getFirstMonthRewards() {
 		return firstMonthRewards;

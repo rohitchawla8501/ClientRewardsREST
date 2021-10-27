@@ -44,6 +44,12 @@ public class Transaction {
 	}
 	public void setTransaction_date(Date transaction_date) {
 		this.transaction_date = transaction_date;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}	
 	
 }

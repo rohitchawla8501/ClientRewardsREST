@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.charter.client.rewards.dto.Customer;
 
 @Repository
-	public interface RewardRepository extends JpaRepository<Customer, Integer> {
+	public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
 	}
 
