@@ -3,7 +3,6 @@
  */
 package com.charter.client.rewards.service;
 
-
 import java.util.List;
 
 import com.charter.client.rewards.dto.Customer;
@@ -14,8 +13,7 @@ import com.charter.client.rewards.dto.Customer;
  */
 public interface RewardService {
 
-	
 	List<Customer> calculateRewardsAll();
-	
+
 	Customer calculateRewardsbyId(Integer id);
 }
