@@ -67,7 +67,7 @@ Directory Strutuctre
 
 ```
 
-====================
+
 DataSet
 ====================
 -- The data is stored in a in memory H2 database. Insert queries are recorded in the data.sql file under the resources folder.  
