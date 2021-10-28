@@ -105,6 +105,7 @@ http://localhost:8080/customers/rewards/2
 
 Example Expected Output for http://localhost:8080/customers/rewards/2
 
+```json
 {
   "id" : 2,
   "name" : "Bob",
@@ -113,7 +114,7 @@ Example Expected Output for http://localhost:8080/customers/rewards/2
   "thirdMonthRewards" : 180,
   "totalRewardAmount" : 540
 }
-
+```
 
 TROUBLESHOOTING
 ====================
@@ -123,8 +124,8 @@ TROUBLESHOOTING
 -Check if correct URL is used  
 -Also user can use the following link to log into the H2 database to check if data is getting populated.
 Link http://localhost:8080/h2
-Properties are below:
-JDBC URL =jdbc:h2:mem:testdb
-UserName = sa 
-There is no password.
+Properties are below:  
+JDBC URL =jdbc:h2:mem:testdb  
+UserName = sa   
+There is no password  
 
