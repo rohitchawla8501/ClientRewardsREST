@@ -45,7 +45,7 @@ public class RewardServiceImpl implements RewardService {
 			}
 
 		}
-		logger.info("Entered calculateRewardsAll method of Service");
+		logger.info("End of calculateRewardsAll method of Service");
 		return customerList;
 	}
 

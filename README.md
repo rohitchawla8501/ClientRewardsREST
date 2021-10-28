@@ -1,6 +1,6 @@
 
 
-PROBLEM STATEMENT:
+Problem Statement:
 ====================
 
 A retailer offers a rewards program to its customers, awarding points based on each recorded purchase. 
@@ -35,7 +35,7 @@ Directory Strutuctre
     │   │       └── charter
     │   │           └── client
     │   │               └── rewards
-    │   │                   ├── Application.java
+    │   │                   ├── RewardsApplication.java
     │   │                   ├── ServletInitializer.java
     │   │                   ├── controller
     │   │                   │   └── RewardsController.java
@@ -63,7 +63,7 @@ Directory Strutuctre
                 └── charter
                     └── client
                         └── rewards
-                            └── ApplicationTests.java
+                            └── RewardsApplicationTests.java
 
 ```
 
@@ -82,18 +82,49 @@ Logging is provided as well.
 
 Unit Tests
 ====================
-I have create a few Unit Tests for scenarios such as Transaction amount >100, lesser than 50 and between 50 and 100 as well. It is present in file ApplicationTests.java
+I have create a few Unit Tests for scenarios such as Transaction amount >100, lesser than 50 and between 50 and 100 as well. It is present in file RewardsApplicationTests.java
 User can run  mvn test to run the tests.
 
 
 To run:
 ====================
-git clone https://github.com/rohitchawla8501/ClientRewardsREST
-mvn clean compile
+git clone https://github.com/rohitchawla8501/ClientRewardsREST  
+mvn clean compile  
 mvn spring-boot:run
 
 
-USAGE
+Usage
 ====================
 1. User can hit the following URL via GET Method for All customer Rewards--> /customers/rewards
 2. User can hit the following URL via GET MEthod for Customer by Id--> /customers/rewards/{id} 
+
+After the program is run, user can enter the following link in the URL:
+http://localhost:8080/customers/rewards. 
+OR  
+http://localhost:8080/customers/rewards/2
+
+Example Expected Output for http://localhost:8080/customers/rewards/2
+
+{
+  "id" : 2,
+  "name" : "Bob",
+  "firstMonthRewards" : 180,
+  "secondMonthRewards" : 180,
+  "thirdMonthRewards" : 180,
+  "totalRewardAmount" : 540
+}
+
+
+TROUBLESHOOTING
+====================
+1. If errors are experienced, user can enable debug logs . User can enable debug logs to check the flow. The following can be uncommented from the application.properties file #logging.level.com.charter.client=DEBUG. 
+2. If Test Cases fail, make sure the data.sql file has not been changed.  
+3. REST API does not receive any data: 
+-Check if correct URL is used  
+-Also user can use the following link to log into the H2 database to check if data is getting populated.
+Link http://localhost:8080/h2
+Properties are below:
+JDBC URL =jdbc:h2:mem:testdb
+UserName = sa 
+There is no password.
+

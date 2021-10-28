@@ -9,7 +9,7 @@ import com.charter.client.rewards.service.RewardService;
 
 @SpringBootTest
 
-class ApplicationTests {
+class RewardsApplicationTests {
 
 	@Autowired
 	private RewardService rewardService;

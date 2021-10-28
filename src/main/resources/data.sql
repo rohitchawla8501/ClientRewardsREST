@@ -6,6 +6,7 @@ insert into CUSTOMER values(3,'Kai');
 insert into CUSTOMER values(4,'Joe');
 insert into CUSTOMER values(5,'Ronaldo');
 insert into CUSTOMER values(6,'Messi');
+insert into CUSTOMER values(7,'Hazard');
 
 Insert into transaction values(1000,1,120,'2021-10-24');
 Insert into transaction values(1001,1,120,'2021-09-24');
@@ -28,3 +29,5 @@ Insert into transaction values(1013,4,40,'2021-08-24');
 Insert into transaction values(1014,5,100,'2021-08-24');
 
 Insert into transaction values(1015,6,1000,'2019-08-24');
+
+Insert into transaction values(1016,7,53,'2021-08-24');

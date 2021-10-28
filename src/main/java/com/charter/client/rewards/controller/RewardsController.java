@@ -3,8 +3,8 @@
  */
 package com.charter.client.rewards.controller;
 
-
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +33,10 @@ public class RewardsController implements ErrorController {
 	private RewardService rewardService;
 
 	@GetMapping("/")
-	public ResponseEntity<String> indexRoot() {
-		return new ResponseEntity<>("Welcome To Client Rewards REST API.Please enter a valid URL such as /customers/rewards  Or a customer with Valid ID /customers/rewards/{id}", HttpStatus.OK);
+	public ResponseEntity<String> indexLandingPage() {
+		return new ResponseEntity<>(
+				"Welcome To Client Rewards REST API.Please enter a valid URL such as /customers/rewards  Or a customer with Valid ID /customers/rewards/{id}",
+				HttpStatus.OK);
 
 	}
 
@@ -42,8 +44,7 @@ public class RewardsController implements ErrorController {
 	public ResponseEntity<List<Customer>> getAllCustomerRewards() {
 		logger.info("Entered getAllCustomerRewards method");
 		List<Customer> customerList = rewardService.calculateRewardsAll();
-		if (customerList.isEmpty() || customerList.size() == 0) 
-		{
+		if (customerList.isEmpty() || customerList.size() == 0) {
 			logger.error("Customer List is empty");
 			throw new CustomerNotFoundException("No Customer Data");
 		}
@@ -53,9 +54,9 @@ public class RewardsController implements ErrorController {
 	@GetMapping("/customers/rewards/{id}")
 	public ResponseEntity<Customer> getCustomerRewardsById(@PathVariable Integer id) {
 		logger.info("Entered getCustomerRewardsById method");
-		Customer customer= rewardService.calculateRewardsbyId(id);
+		Customer customer = rewardService.calculateRewardsbyId(id);
 
-		if ( customer==null) {
+		if (customer == null) {
 			logger.error("Customer Object is empty/No Customer found");
 			throw new CustomerNotFoundException("Customer id '" + id + "' does not exist");
 		}
@@ -63,6 +64,4 @@ public class RewardsController implements ErrorController {
 		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 	}
 
-
 }
-

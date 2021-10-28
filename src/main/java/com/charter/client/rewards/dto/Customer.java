@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author rohitchawla Customer DTO
  */
@@ -21,20 +23,22 @@ public class Customer {
 
 	@Id
 	int id;
+
 	@Column
 	String name;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Transaction> transactions;
 
 	@Transient
-	int totalRewardAmount;
-	@Transient
-	int thirdMonthRewards;
+	int firstMonthRewards;
 	@Transient
 	int secondMonthRewards;
 	@Transient
-	int firstMonthRewards;
+	int thirdMonthRewards;
+	@Transient
+	int totalRewardAmount;
 
 	public int getId() {
 		return id;
@@ -60,12 +64,12 @@ public class Customer {
 		this.transactions = transactions;
 	}
 
-	public int getTotalRewardAmount() {
-		return firstMonthRewards + secondMonthRewards + thirdMonthRewards;
+	public int getFirstMonthRewards() {
+		return firstMonthRewards;
 	}
 
-	public void setTotalRewardAmount(int totalRewardAmount) {
-		this.totalRewardAmount = totalRewardAmount;
+	public void setFirstMonthRewards(int firstMonthRewards) {
+		this.firstMonthRewards = firstMonthRewards;
 	}
 
 	public int getThirdMonthRewards() {
@@ -84,12 +88,12 @@ public class Customer {
 		this.secondMonthRewards = secoundMonthRewards;
 	}
 
-	public int getFirstMonthRewards() {
-		return firstMonthRewards;
+	public int getTotalRewardAmount() {
+		return firstMonthRewards + secondMonthRewards + thirdMonthRewards;
 	}
 
-	public void setFirstMonthRewards(int firstMonthRewards) {
-		this.firstMonthRewards = firstMonthRewards;
+	public void setTotalRewardAmount(int totalRewardAmount) {
+		this.totalRewardAmount = totalRewardAmount;
 	}
 
 }
